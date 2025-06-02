@@ -1,1 +1,8 @@
-freeze
+fastapi==0.110.0                 # Framework utama REST API
+uvicorn[standard]==0.29.0        # Server ASGI (dengan websockets, logging, dll)
+sqlalchemy==2.0.30               # ORM untuk koneksi dan query ke database
+pydantic==2.7.1                  # Validasi data input/output (dipakai oleh FastAPI)
+python-dotenv==1.0.1             # Untuk membaca file .env
+passlib[bcrypt]==1.7.4  # Untuk hash password dengan aman
+python-jose[cryptography]==3.3.0  # Untuk JWT (akan digunakan di Day 3)
+pydantic[email]==2.7.1
