@@ -1,8 +1,26 @@
-from dotenv import load_dotenv  # Memuat variabel lingkungan dari file .env
-import os  # Untuk mengakses environment variable
+# app/core/config.py
 
-load_dotenv()  # Jalankan fungsi untuk memuat .env ke dalam os.environ
+import os
+from pydantic_settings import BaseSettings
 
-# Ambil variabel dari .env, jika tidak ada pakai default
-APP_NAME = os.getenv("APP_NAME", "FastAPI App")  
-API_PREFIX = os.getenv("API_PREFIX", "/api")  # Digunakan sebagai prefix route (misal: /api/ping)
+
+class Settings(BaseSettings):
+    # Aplikasi
+    APP_NAME: str = "FastAPI App"
+    API_PREFIX: str = "/api"
+
+    # Keamanan
+    SECRET_KEY: str
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+
+    # Database
+    DATABASE_URL: str = "sqlite:///./app.db"
+
+    class Config:
+        env_file = os.getenv("ENV_FILE", ".env")  # bisa override dengan ENV_FILE
+        env_file_encoding = "utf-8"
+        case_sensitive = True
+
+
+config = Settings()

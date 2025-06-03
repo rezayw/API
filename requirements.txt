@@ -6,3 +6,7 @@ python-dotenv==1.0.1             # Untuk membaca file .env
 passlib[bcrypt]==1.7.4  # Untuk hash password dengan aman
 python-jose[cryptography]==3.3.0  # Untuk JWT (akan digunakan di Day 3)
 pydantic[email]==2.7.1
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+pydantic-settings==2.2.1
+

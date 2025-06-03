@@ -12,5 +12,12 @@ class UserOut(BaseModel):
     email: EmailStr
     full_name: str
 
-    class Config:
-        orm_mode = True
+model_config = {
+    "from_attributes": True
+}
+
+        
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
